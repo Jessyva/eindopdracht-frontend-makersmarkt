@@ -1,0 +1,45 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #7b2e8f; /* Kleur van de navigatiebalk */
+    color: white; /* Kleur van de tekst */
+    position: fixed; /* Zorgt ervoor dat de navigatiebalk vast blijft staan */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 60px; /* Pas de hoogte aan indien nodig */
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px; /* Pas de hoogte van het logo aan */
+    margin-right: 1rem;
+}
+
+.navLinks {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.navLinks li {
+    margin: 0;
+}
+
+.navLinks a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.navLinks a:hover {
+    background-color: #7b2e8f; /* Kleur bij hover */
+    border-radius: 4px; /* Ronde hoeken bij hover */
+}

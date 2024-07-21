@@ -1,0 +1,14 @@
+.profilesPage {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Zorgt ervoor dat de kaarten zich aanpassen aan de breedte van de container */
+    gap: 1rem; /* Ruimte tussen de kaarten */
+    padding: 2rem;
+}
+
+.profielKaart {
+    background-color: #c0a2c8; /* Voor een achtergrondkleur */
+    border: 1px solid #ddd; /* Grijze lijn om de kaart */
+    border-radius: 8px; /* Hoekige afronding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Schaduw voor diepte */
+    padding: 1rem; /* Ruimte binnen de kaart */
+}

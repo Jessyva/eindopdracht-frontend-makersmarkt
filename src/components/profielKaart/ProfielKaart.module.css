@@ -1,0 +1,38 @@
+.profilesPage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.profielKaart {
+    flex: 1 1 calc(33.333% - 2rem);
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.profielKaart h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.profielKaart p {
+    margin-bottom: 1rem; /* Ruimte onder de beschrijving */
+    color: #555; /* Optionele kleur voor de beschrijving */
+}
+
+.links a {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
