@@ -1,31 +1,28 @@
-import React from 'react';
-import ProfielKaart from "../../components/profielKaart/ProfielKaart.jsx"
+import React, { useEffect, useState } from 'react';
 import styles from './MarktOndernemer.module.css';
+import axios from 'axios';
+import ProfielKaart from "../../components/profielKaart/ProfielKaart.jsx";
 
-const marktOndernemer = [
-    {
-        name: 'Marktondernemer 1',
-        description: 'Beschrijving van marktondernemer 1.',
-        website: 'https://markt1.nl',
-        facebook: 'https://facebook.com/markt1',
-        instagram: 'https://instagram.com/markt1',
-        tiktok: 'https://tiktok.com/@markt1'
-    },
-    {
-        name: 'Marktondernemer 2',
-        description: 'Beschrijving van marktondernemer 2.',
-        website: 'https://markt2.nl',
-        facebook: 'https://facebook.com/markt2',
-        instagram: 'https://instagram.com/markt2',
-        tiktok: 'https://tiktok.com/@markt2'
-    },
-    // Voeg hier meer marktondernemers toe
-];
+const MarktOndernemerPage = () => {
+    const [ondernemer, setOndernemer] = useState([]);
 
-const MarktOndernemer = () => {
+    useEffect(() => {
+        const fetchOndernemer = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/ondernemer');
+                setOndernemer(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchOndernemer();
+    }, []);
+
     return (
         <div className={styles.profilesPage}>
-            {marktOndernemer.map((profile, index) => (
+            <h3>Welkom op de overzichtspagina de markten</h3>
+            {ondernemer.map((profile, index) => (
                 <ProfielKaart
                     key={index}
                     name={profile.name}
@@ -40,4 +37,4 @@ const MarktOndernemer = () => {
     );
 };
 
-export default MarktOndernemer;
+export default MarktOndernemerPage;

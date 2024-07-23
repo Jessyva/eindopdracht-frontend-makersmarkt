@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import styles from './AanmeldenPagina.module.css';
+import axios from 'axios';
 
 const AanmeldenPagina = () => {
         const [formData, setFormData] = useState({
@@ -8,23 +9,44 @@ const AanmeldenPagina = () => {
             facebook: '',
             instagram: '',
             tiktok: '',
-            userType: ''
+            userType: '',
+            photo: null,
         });
 
         const handleChange = (e) => {
-            const { name, value } = e.target;
+            const { name, value, type, files} = e.target;
             setFormData({
                 ...formData,
-                [name]: value
+                [name]: type === 'file' ? files[0] : value
             });
         };
 
-        const handleSubmit = (e) => {
-            e.preventDefault();
-            // Hier kun je het formulier verwerken, bijv. het verzenden van de gegevens naar een server
-            console.log(formData);
-        };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
+        const data = new FormData();
+        data.append('name', formData.name);
+        data.append('website', formData.website);
+        data.append('facebook', formData.facebook);
+        data.append('instagram', formData.instagram);
+        data.append('tiktok', formData.tiktok);
+        data.append('userType', formData.userType);
+        if (formData.photo) {
+            data.append('photo', formData.photo);
+        }
+
+        try {
+            const response = await axios.post('http://localhost:3000/api/ondernemers', data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            console.log('Form data submitted:', response.data);
+            // Je kunt hier de status bijwerken indien nodig
+        } catch (error) {
+            console.error('Error submitting form data:', error);
+        }
+    };
         return (
             <div className="signup-container">
                 <h1>Meld je aan</h1>
@@ -74,6 +96,14 @@ const AanmeldenPagina = () => {
                         value={formData.tiktok}
                         onChange={handleChange}
                     />
+                    <label htmlFor="photo">Foto</label>
+                    <input
+                        type="file"
+                        id="photo"
+                        name="photo"
+                        accept="image/*"
+                        onChange={handleChange}
+                    />
 
                     <label>Ben je een:</label>
                     <div>
@@ -103,6 +133,6 @@ const AanmeldenPagina = () => {
                 </form>
             </div>
         );
-    };
+};
 
 export default AanmeldenPagina;

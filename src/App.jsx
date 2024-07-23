@@ -9,12 +9,12 @@ import AanmeldenPagina from "./pages/aanmelden/AanmeldenPagina.jsx";
 import Footer from './components/footer/Footer';
 import Style from './App.module.css';
 
-const App = () => {
+function App () {
     return (
         <Router>
-            <div className="root">
+            <div className="App">
                 <Navigatiebar />
-                <main className="content">
+                <main>
                     <Routes>
                             <Route path="/" element={<HomePage />}/>
                             <Route path="/product-ondernemer" element={<ProductOndernemer />}/>
@@ -27,6 +27,6 @@ const App = () => {
             </div>
         </Router>
     );
-};
+}
 
 export default App;
