@@ -6,5 +6,5 @@ Frontend:
   Je kan de repository vinden via via github: git@github.com:Jessyva/eindopdracht-backend-makersmarkt.git
   Navigeer naar de terminal en run: npm run install
   Om het project te starten voer je in npm run dev.
-  Het project is te berichten via Local:   http://localhost:5173/
+  Het project is te berichten via Local: nhttp://localhost:5173/
 

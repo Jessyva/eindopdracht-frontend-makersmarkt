@@ -9,7 +9,7 @@ const ProductOndernemer = () => {
     useEffect(() => {
         const fetchOndernemer = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/entrepreneurs');
+                const response = await axios.get('http://localhost: 5432/api/entrepreneurs');
                 setOndernemer(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);

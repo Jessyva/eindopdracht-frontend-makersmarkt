@@ -36,7 +36,7 @@ const AanmeldenPagina = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:3000/api/ondernemers', data, {
+            const response = await axios.post('http://localhost:5432/api/ondernemers', data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

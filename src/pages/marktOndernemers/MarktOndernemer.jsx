@@ -9,7 +9,7 @@ const MarktOndernemerPage = () => {
     useEffect(() => {
         const fetchOndernemer = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/ondernemer');
+                const response = await axios.get('http://localhost:5432/api/ondernemer');
                 setOndernemer(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
